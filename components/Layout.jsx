@@ -10,6 +10,10 @@ const Layout = ({ children }) => {
             {/* header */}
             <Head>
                 <title>Cossmo</title>
+                <meta name="description"
+                    content="cossmo online do'kon" />
+                <meta name="keywords" content="cossmo, cossmo uz cossmo-online-do'kon cossmo-uz cossmo-uzb cossmo uzb " />
+                <meta name="author" content="Fazliddin Fayziev" />
             </Head>
             {/* header */}
             <header>
