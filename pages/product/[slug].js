@@ -6,6 +6,16 @@ import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
+const formatPrice = (price) => {
+    // Convert price to string to manipulate its characters
+    const priceString = price.toString();
+
+    // Split the price into parts by reversing the string, then joining them with spaces every 3 characters
+    const formattedPrice = priceString.split('').reverse().join('').replace(/(\d{3}(?=\d))/g, '$1 ').split('').reverse().join('');
+
+    return formattedPrice;
+};
+
 const ProductDetails = ({ product, products }) => {
     const { image, name, details, price } = product;
     const [index, setIndex] = useState(0);
@@ -63,7 +73,7 @@ const ProductDetails = ({ product, products }) => {
                         </div>
                         <h4>Ma'lumot: </h4>
                         <p>{details}</p>
-                        <p className="price">{price} so'm</p>
+                        <p className="price">{formatPrice(price)} so'm</p>
                         <div className="quantity">
                             <h3>Miqdor:</h3>
                             <p className="quantity-desc">
